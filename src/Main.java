@@ -12,7 +12,7 @@ public class Main implements ActionListener, KeyListener {
     private JFrame  frame;
     private JPanel  panel;
     private Timer   tick;
-    private Boolean isPaused;
+    public Boolean isPaused;
 
     private Bird bird;
     private ArrayList<Rectangle> pipes;
@@ -23,7 +23,7 @@ public class Main implements ActionListener, KeyListener {
         bird  = new Bird();
         pipes = new ArrayList<Rectangle>();
         panel = new Overlay(this, bird, pipes);
-        tick  = new Timer(100, this);
+        tick  = new Timer(24, this);
         isPaused = true;
         score = 0;
 
@@ -35,8 +35,8 @@ public class Main implements ActionListener, KeyListener {
         tick.start();
     }
 
-    public static void main(){
-
+    public static void main(String[] args){
+        new Main();
     }
 
     @Override
@@ -53,11 +53,21 @@ public class Main implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()){
             case KeyEvent.VK_SPACE:
-                bird.jump(); break;
+                bird.jump();
+                isPaused = false;
+                break;
 
 
         }
     }
 
+    @Override
+    public void keyReleased(KeyEvent keyEvent) {
+        // This method has to be implemented for project to run
+    }
+    @Override
+    public void keyTyped(KeyEvent keyEvent) {
+        // This method has to be implemented for project to run
+    }
 
 }

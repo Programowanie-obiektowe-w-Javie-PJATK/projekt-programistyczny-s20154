@@ -34,6 +34,20 @@
       <recent name="" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="FlappyBird" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -44,7 +58,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591733311762</updated>
-      <workItem from="1591733315549" duration="3327000" />
+      <workItem from="1591733315549" duration="7241000" />
     </task>
     <servers />
   </component>
@@ -56,6 +70,26 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1512" y="367" key="#Notifications/0.0.2560.1410@0.0.2560.1410" timestamp="1591735182638" />
+    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591738115530">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1591738115530" />
+    <state width="1234" height="403" key="GridCell.Tab.0.bottom" timestamp="1591740858909">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1234" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1591740858909" />
+    <state width="1234" height="403" key="GridCell.Tab.0.center" timestamp="1591740858909">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1234" height="403" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1591740858908" />
+    <state width="1234" height="403" key="GridCell.Tab.0.left" timestamp="1591740858908">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1234" height="403" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1591740858908" />
+    <state width="1234" height="403" key="GridCell.Tab.0.right" timestamp="1591740858909">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1234" height="403" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1591740858909" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

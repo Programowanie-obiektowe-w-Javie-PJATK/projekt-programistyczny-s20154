@@ -1,28 +1,49 @@
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
-private interface Player {
+interface Player {
     void jump();
     void pullDown();
     void reset();
+    void draw(Graphics g);
 }
 
 public class Bird implements Player {
     private double x, y;
     private double Vx, Vy;
+    private Image body;
+    public static final double size = 20;
 
     public Bird(){
-
+        reset();
+        try {
+            body = ImageIO.read(new File("birdBody.png"));
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void jump(){
-
+        Vy = -12;
     }
 
     public void pullDown(){
-
+        x += Vx;
+        y += Vy;
+        Vy += 1.0;
     }
 
     public void reset(){
+        x = Main.WINDOW_WIDTH/2;
+        y = Main.WINDOW_HEIGHT/2;
+        Vx = 0;
+        Vy = 0;
+    }
 
+    public void draw(Graphics g){
+        g.drawImage(body, (int)(x-size),(int)(y-size),(int)(2*size),(int)(2*size), null);
     }
 
 }
