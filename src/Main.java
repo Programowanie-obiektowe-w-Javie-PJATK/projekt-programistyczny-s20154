@@ -5,11 +5,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main implements ActionListener, KeyListener {
     public static final int WINDOW_WIDTH  = 320;
     public static final int WINDOW_HEIGHT = 480;
-    public static final int PIPE_WIDTH = 40;
+    public static final int PIPE_WIDTH = 45;
     private JFrame  frame;
     private JPanel  panel;
     private Timer   tick;
@@ -49,9 +50,12 @@ public class Main implements ActionListener, KeyListener {
         bird.pullDown();
 
         // Create new pipe
-        if(scroll % 90 == 0) {
-            Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, 100);
-            Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-100, PIPE_WIDTH, 100);
+        if(scroll % 60 == 0) {
+            int gap = new Random().nextInt(120)+30;
+            int upperHeight = new Random().nextInt(90) + 60;
+            int lowerHeight = WINDOW_HEIGHT-upperHeight-gap-60;
+            Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight);
+            Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight);
             pipes.add(upperPipe);
             pipes.add(lowerPipe);
         }
@@ -59,7 +63,7 @@ public class Main implements ActionListener, KeyListener {
         ArrayList<Rectangle> toRemove = new ArrayList<Rectangle>();
         for(Rectangle r : pipes) {
             // Move pipe
-            r.x -= 2;
+            r.x -= 4;
 
             // Does pipe reach left part of screen
             if(r.x + PIPE_WIDTH*10 <= 0) {

@@ -27,13 +27,13 @@ public class Bird implements Player {
     }
 
     public void jump(){
-        Vy = -1;
+        Vy = -11;
     }
 
     public void pullDown(){
         x += Vx;
         y += Vy;
-        Vy += 0.2;
+        Vy += 0.8;
     }
 
     public void reset(){
@@ -48,7 +48,7 @@ public class Bird implements Player {
     }
 
     public Boolean doesReachWindowBorder(){
-        if( y > Main.WINDOW_HEIGHT || y+size < 0 )
+        if( y-size > Main.WINDOW_HEIGHT || y+size < 0 )
             return false;
         else
             return true;
