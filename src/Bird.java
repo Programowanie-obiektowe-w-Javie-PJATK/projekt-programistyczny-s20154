@@ -8,10 +8,11 @@ interface Player {
     void pullDown();
     void reset();
     void draw(Graphics g);
+    Boolean doesReachWindowBorder();
 }
 
 public class Bird implements Player {
-    private double x, y;
+    public double x, y;
     private double Vx, Vy;
     private Image body;
     public static final double size = 20;
@@ -44,6 +45,13 @@ public class Bird implements Player {
 
     public void draw(Graphics g){
         g.drawImage(body, (int)(x-size),(int)(y-size),(int)(2*size),(int)(2*size), null);
+    }
+
+    public Boolean doesReachWindowBorder(){
+        if( y > Main.WINDOW_HEIGHT || y+size < 0 )
+            return false;
+        else
+            return true;
     }
 
 }
