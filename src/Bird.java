@@ -27,13 +27,13 @@ public class Bird implements Player {
     }
 
     public void jump(){
-        Vy = -12;
+        Vy = -11;
     }
 
     public void pullDown(){
         x += Vx;
         y += Vy;
-        Vy += 1.0;
+        Vy += 0.8;
     }
 
     public void reset(){
