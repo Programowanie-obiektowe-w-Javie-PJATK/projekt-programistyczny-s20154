@@ -7,12 +7,14 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class Main implements ActionListener, KeyListener {
-    public static final int WINDOW_WIDTH  = 640;
+    public static final int WINDOW_WIDTH  = 320;
     public static final int WINDOW_HEIGHT = 480;
+    public static final int PIPE_WIDTH = 40;
     private JFrame  frame;
     private JPanel  panel;
     private Timer   tick;
-    public Boolean isPaused;
+    private int scroll;
+    public  Boolean isPaused;
 
     private Bird bird;
     private ArrayList<Rectangle> pipes;
@@ -25,7 +27,6 @@ public class Main implements ActionListener, KeyListener {
         panel = new Overlay(this, bird, pipes);
         tick  = new Timer(24, this);
         isPaused = true;
-        score = 0;
 
         frame.add(panel);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -47,6 +48,46 @@ public class Main implements ActionListener, KeyListener {
 
         bird.pullDown();
 
+        // Create new pipe
+        if(scroll % 90 == 0) {
+            Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, 100);
+            Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-100, PIPE_WIDTH, 100);
+            pipes.add(upperPipe);
+            pipes.add(lowerPipe);
+        }
+
+        ArrayList<Rectangle> toRemove = new ArrayList<Rectangle>();
+        for(Rectangle r : pipes) {
+            // Move pipe
+            r.x -= 2;
+
+            // Does pipe reach left part of screen
+            if(r.x + PIPE_WIDTH*10 <= 0) {
+                toRemove.add(r);
+            }
+
+            // Does bird collide with pipe
+            if(r.contains(bird.x, bird.y)) {
+                gameOver();
+                return;
+            }
+        }
+
+        pipes.removeAll(toRemove);
+        scroll++;
+
+        if(!bird.doesReachWindowBorder()) {
+            gameOver();
+        }
+
+    }
+
+    private void gameOver(){
+        pipes.clear();
+        bird.reset();
+        isPaused = true;
+        scroll = 0;
+        score = 0;
     }
 
     @Override
@@ -56,7 +97,6 @@ public class Main implements ActionListener, KeyListener {
                 bird.jump();
                 isPaused = false;
                 break;
-
 
         }
     }
