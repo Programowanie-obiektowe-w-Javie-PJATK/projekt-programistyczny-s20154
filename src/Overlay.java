@@ -34,10 +34,8 @@ public class Overlay extends JPanel {
         for(Rectangle r : pipes) {
             Graphics2D g2d = (Graphics2D) g;
             AffineTransform old = g2d.getTransform();
-            g2d.setColor(Color.GREEN);
-            g2d.fillRect(r.x, r.y, r.width, r.height);
             //g2d.drawImage(pipeHead, -r.width/2, -r.height/2, r.width, 10, null);
-            //g2d.drawImage(pipeBody, r.x, r.y, r.width, r.height, null);
+            g2d.drawImage(pipeBody, r.x, r.y, r.width, r.height, null);
             g2d.setTransform(old);
         }
 
