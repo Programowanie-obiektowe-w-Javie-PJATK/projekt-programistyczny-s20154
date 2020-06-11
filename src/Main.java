@@ -1,15 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.security.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
-public class Main implements ActionListener, KeyListener {
+public class Main implements ActionListener, KeyListener, MouseListener {
     public static final int WINDOW_WIDTH  = 400;
     public static final int WINDOW_HEIGHT = 480;
     public static final int PIPE_WIDTH = 55;
@@ -40,6 +37,7 @@ public class Main implements ActionListener, KeyListener {
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setVisible(true);
         frame.addKeyListener(this);
+        frame.addMouseListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(new Color(200,200,200,255));
 
@@ -116,6 +114,11 @@ public class Main implements ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()){
+            case KeyEvent.VK_KP_LEFT:
+            case KeyEvent.VK_DOWN:
+            case KeyEvent.VK_LEFT:
+            case KeyEvent.VK_RIGHT:
+            case KeyEvent.VK_UP:
             case KeyEvent.VK_SPACE:
                 bird.jump();
                 isPaused = false;
@@ -125,7 +128,33 @@ public class Main implements ActionListener, KeyListener {
                 break;
         }
     }
+    @Override
+    public void mousePressed(MouseEvent mouseEvent){
+        switch (mouseEvent.getButton()){
+            case MouseEvent.BUTTON1:
+                bird.jump();
+                isPaused = false;
+                break;
+        }
+    }
 
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // This method has to be implemented for project to run
+    }
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // This method has to be implemented for project to run
+    }
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // This method has to be implemented for project to run
+    }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // This method has to be implemented for project to run
+    }
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         // This method has to be implemented for project to run
