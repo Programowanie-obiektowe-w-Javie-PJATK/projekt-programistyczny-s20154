@@ -20,7 +20,7 @@ public class Main implements ActionListener, KeyListener {
     private Bird bird;
     private ArrayList<Rectangle> pipes;
     private int score;
-    private int difficulty;
+    private Difficulty difficulty;
 
     public Main(){
         frame = new JFrame("Flappy Bird the Game");
@@ -28,8 +28,8 @@ public class Main implements ActionListener, KeyListener {
         pipes = new ArrayList<Rectangle>();
         panel = new Overlay(this, bird, pipes);
         tick  = new Timer(24, this);
+        difficulty = new Difficulty();
         isPaused = true;
-        difficulty = 60;
 
         frame.add(panel);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -52,12 +52,12 @@ public class Main implements ActionListener, KeyListener {
 
         bird.pullDown();
 
-        setDifficulty();
+        difficulty.increase(score);
 
         // Create new pipe
-        if(scroll % difficulty == 0) {
-            int gap = new Random().nextInt(4)*difficulty+30;
-            int upperHeight = new Random().nextInt(4)*20 + 30;
+        if(scroll % difficulty.getSpeed() == 0) {
+            int gap = new Random().nextInt(4)*difficulty.getMinGap()+30;
+            int upperHeight = new Random().nextInt(4)*45 + 30;
             int lowerHeight = WINDOW_HEIGHT-(upperHeight+gap+60);
             Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight);
             Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight);
@@ -103,18 +103,7 @@ public class Main implements ActionListener, KeyListener {
         isPaused = true;
         scroll = 0;
         score = 0;
-        difficulty = 90;
-    }
-
-    private void setDifficulty(){
-        switch (score){
-            case 8:
-                difficulty = 30;
-                break;
-            case 16:
-                difficulty = 10;
-                break;
-        }
+        difficulty.reset();
     }
 
     @Override
