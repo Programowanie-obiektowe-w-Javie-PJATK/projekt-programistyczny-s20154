@@ -1,5 +1,4 @@
 public class Difficulty {
-    private int minGap;
     private int speed;
 
     public Difficulty(){
@@ -14,12 +13,6 @@ public class Difficulty {
         }
     }
 
-    public int getMinGap() {
-        return minGap;
-    }
-    public void setMinGap(int minGap) {
-        this.minGap = minGap;
-    }
     public int getSpeed() {
         return speed;
     }
@@ -28,7 +21,6 @@ public class Difficulty {
     }
 
     public void reset(){
-        minGap = 4;
         speed = 96;
     }
 

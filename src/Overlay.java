@@ -20,7 +20,6 @@ public class Overlay extends JPanel {
         font = new Font("Arial", Font.ITALIC, 21);
 
         try {
-            pipeHead = ImageIO.read(new File("pipeHead.png"));
             pipeBody = ImageIO.read(new File("pipeBody.png"));
         } catch(IOException e) {
             e.printStackTrace();
@@ -34,7 +33,6 @@ public class Overlay extends JPanel {
         for(Rectangle r : pipes) {
             Graphics2D g2d = (Graphics2D) g;
             AffineTransform old = g2d.getTransform();
-            //g2d.drawImage(pipeHead, -r.width/2, -r.height/2, r.width, 10, null);
             g2d.drawImage(pipeBody, r.x, r.y, r.width, r.height, null);
             g2d.setTransform(old);
         }
@@ -42,7 +40,7 @@ public class Overlay extends JPanel {
         if(main.isPaused) {
             g.setFont(font);
             g.setColor(new Color(0,0,0,255));
-            g.drawString("PRESS SPACE", 50, 50);
+            g.drawString("Press SPACE to start", 50, 50);
         }
 
     }
