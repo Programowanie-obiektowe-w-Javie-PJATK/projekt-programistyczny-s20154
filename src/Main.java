@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class Main implements ActionListener, KeyListener {
-    public static final int WINDOW_WIDTH  = 640;
+    public static final int WINDOW_WIDTH  = 400;
     public static final int WINDOW_HEIGHT = 480;
     public static final int PIPE_WIDTH = 55;
     private JFrame  frame;
@@ -57,7 +57,6 @@ public class Main implements ActionListener, KeyListener {
             return;
 
         bird.pullDown();
-
         difficulty.increase(score);
 
         // Create new pipe
@@ -65,10 +64,8 @@ public class Main implements ActionListener, KeyListener {
             int gap = rand.nextInt(3)*40+120;
             int upperHeight = rand.nextInt(4)*50+50;
             int lowerHeight = WINDOW_HEIGHT-(upperHeight+gap);
-            Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight);
-            Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight);
-            pipes.add(upperPipe);
-            pipes.add(lowerPipe);
+            pipes.add(new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight));
+            pipes.add(new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight));
         }
 
         ArrayList<Rectangle> toRemove = new ArrayList<Rectangle>();
@@ -82,7 +79,11 @@ public class Main implements ActionListener, KeyListener {
             }
 
             // Does bird collide with pipe
-            if(r.contains(bird.x, bird.y)) {
+            if(r.contains(bird.x + Bird.size/2, bird.y + Bird.size/2) ||
+                    r.contains(bird.x - Bird.size/2, bird.y + Bird.size/2) ||
+                    r.contains(bird.x + Bird.size/2, bird.y - Bird.size/2) ||
+                    r.contains(bird.x - Bird.size/2, bird.y - Bird.size/2)
+            ) {
                 gameOver();
                 return;
             }
