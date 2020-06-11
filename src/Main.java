@@ -49,6 +49,8 @@ public class Main implements ActionListener, KeyListener {
 
         bird.pullDown();
 
+        System.out.println(score/2);
+
         // Create new pipe
         if(scroll % 60 == 0) {
             int gap = new Random().nextInt(120)+30;
@@ -74,6 +76,11 @@ public class Main implements ActionListener, KeyListener {
             if(r.contains(bird.x, bird.y)) {
                 gameOver();
                 return;
+            }
+
+            // Add point ot score
+            if(r.x == WINDOW_WIDTH/2){
+                score++;
             }
         }
 
