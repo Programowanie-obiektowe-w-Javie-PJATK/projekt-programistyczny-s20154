@@ -28,6 +28,7 @@ public class Overlay extends JPanel {
 
     @Override
     public void paintComponent(Graphics g) {
+        g.setColor(new Color(100,200,100,255));
         g.fillRect(0,0,main.WINDOW_WIDTH,main.WINDOW_HEIGHT);
         bird.draw(g);
         for(Rectangle r : pipes) {
@@ -37,9 +38,11 @@ public class Overlay extends JPanel {
             g2d.setTransform(old);
         }
 
+        g.setFont(font);
+        g.setColor(new Color(0,0,0,255));
+        g.drawString("Score:  " + main.getScore()*100, 20, 20);
+
         if(main.isPaused) {
-            g.setFont(font);
-            g.setColor(new Color(0,0,0,255));
             g.drawString("Press SPACE to start", 50, 50);
         }
 

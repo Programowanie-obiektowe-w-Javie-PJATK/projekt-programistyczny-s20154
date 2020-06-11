@@ -38,7 +38,6 @@ public class Main implements ActionListener, KeyListener, MouseListener {
         frame.addKeyListener(this);
         frame.addMouseListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(new Color(200,200,200,255));
 
         tick.start();
     }
@@ -108,6 +107,13 @@ public class Main implements ActionListener, KeyListener, MouseListener {
         scroll = 0;
         score = 0;
         difficulty.reset();
+    }
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     @Override
