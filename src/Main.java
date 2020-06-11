@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main implements ActionListener, KeyListener {
-    public static final int WINDOW_WIDTH  = 320;
+    public static final int WINDOW_WIDTH  = 640;
     public static final int WINDOW_HEIGHT = 480;
     public static final int PIPE_WIDTH = 45;
     private JFrame  frame;
@@ -20,6 +20,7 @@ public class Main implements ActionListener, KeyListener {
     private Bird bird;
     private ArrayList<Rectangle> pipes;
     private int score;
+    private int difficulty;
 
     public Main(){
         frame = new JFrame("Flappy Bird the Game");
@@ -28,11 +29,13 @@ public class Main implements ActionListener, KeyListener {
         panel = new Overlay(this, bird, pipes);
         tick  = new Timer(24, this);
         isPaused = true;
+        difficulty = 60;
 
         frame.add(panel);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setVisible(true);
         frame.addKeyListener(this);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         tick.start();
     }
@@ -49,13 +52,13 @@ public class Main implements ActionListener, KeyListener {
 
         bird.pullDown();
 
-        System.out.println(score/2);
+        setDifficulty();
 
         // Create new pipe
-        if(scroll % 60 == 0) {
-            int gap = new Random().nextInt(120)+30;
-            int upperHeight = new Random().nextInt(90) + 60;
-            int lowerHeight = WINDOW_HEIGHT-upperHeight-gap-60;
+        if(scroll % difficulty == 0) {
+            int gap = new Random().nextInt(4)*difficulty+30;
+            int upperHeight = new Random().nextInt(4)*20 + 30;
+            int lowerHeight = WINDOW_HEIGHT-(upperHeight+gap+60);
             Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight);
             Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight);
             pipes.add(upperPipe);
@@ -84,6 +87,7 @@ public class Main implements ActionListener, KeyListener {
             }
         }
 
+
         pipes.removeAll(toRemove);
         scroll++;
 
@@ -99,6 +103,18 @@ public class Main implements ActionListener, KeyListener {
         isPaused = true;
         scroll = 0;
         score = 0;
+        difficulty = 90;
+    }
+
+    private void setDifficulty(){
+        switch (score){
+            case 8:
+                difficulty = 30;
+                break;
+            case 16:
+                difficulty = 10;
+                break;
+        }
     }
 
     @Override
@@ -108,7 +124,9 @@ public class Main implements ActionListener, KeyListener {
                 bird.jump();
                 isPaused = false;
                 break;
-
+            case KeyEvent.VK_Q:
+                System.exit(1);
+                break;
         }
     }
 
