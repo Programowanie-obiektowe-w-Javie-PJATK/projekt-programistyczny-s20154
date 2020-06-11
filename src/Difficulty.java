@@ -7,14 +7,10 @@ public class Difficulty {
     }
 
     public void increase(int score){
-        if(score == 8){
-            speed = 72;
-        }
-        if(score == 22){
-            speed = 48;
-        }
-        if(score == 44){
-            speed = 24;
+        switch (score){
+            case 8:  speed = 72; break;
+            case 22: speed = 48; break;
+            case 44: speed = 24; break;
         }
     }
 
