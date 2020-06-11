@@ -8,13 +8,10 @@ public class Difficulty {
 
     public void increase(int score){
         if(score == 8){
-            minGap = 30;
-        }
-        if(score == 14){
-            speed = 45;
+            speed = 60;
         }
         if(score == 16){
-            minGap = 20;
+            speed = 40;
         }
         if(score == 20){
             speed = 30;
@@ -35,8 +32,8 @@ public class Difficulty {
     }
 
     public void reset(){
-        minGap = 60;
-        speed = 60;
+        minGap = 4;
+        speed = 80;
     }
 
 

@@ -4,13 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.security.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 public class Main implements ActionListener, KeyListener {
     public static final int WINDOW_WIDTH  = 640;
     public static final int WINDOW_HEIGHT = 480;
-    public static final int PIPE_WIDTH = 45;
+    public static final int PIPE_WIDTH = 55;
     private JFrame  frame;
     private JPanel  panel;
     private Timer   tick;
@@ -21,6 +23,7 @@ public class Main implements ActionListener, KeyListener {
     private ArrayList<Rectangle> pipes;
     private int score;
     private Difficulty difficulty;
+    private Random rand;
 
     public Main(){
         frame = new JFrame("Flappy Bird the Game");
@@ -28,14 +31,17 @@ public class Main implements ActionListener, KeyListener {
         pipes = new ArrayList<Rectangle>();
         panel = new Overlay(this, bird, pipes);
         tick  = new Timer(24, this);
+        rand  = new Random();
         difficulty = new Difficulty();
         isPaused = true;
+        rand.setSeed((int)new Date().getTime());
 
         frame.add(panel);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         frame.setVisible(true);
         frame.addKeyListener(this);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(new Color(200,200,200,255));
 
         tick.start();
     }
@@ -56,9 +62,9 @@ public class Main implements ActionListener, KeyListener {
 
         // Create new pipe
         if(scroll % difficulty.getSpeed() == 0) {
-            int gap = new Random().nextInt(4)*difficulty.getMinGap()+30;
-            int upperHeight = new Random().nextInt(4)*45 + 30;
-            int lowerHeight = WINDOW_HEIGHT-(upperHeight+gap+60);
+            int gap = rand.nextInt(3)*40+120;
+            int upperHeight = rand.nextInt(4)*50+50;
+            int lowerHeight = WINDOW_HEIGHT-(upperHeight+gap);
             Rectangle upperPipe = new Rectangle(WINDOW_WIDTH, 0, PIPE_WIDTH, upperHeight);
             Rectangle lowerPipe = new Rectangle(WINDOW_WIDTH, WINDOW_HEIGHT-lowerHeight, PIPE_WIDTH, lowerHeight);
             pipes.add(upperPipe);
