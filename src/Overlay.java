@@ -10,7 +10,7 @@ public class Overlay extends JPanel {
     private Main main;
     private Bird bird;
     private ArrayList<Rectangle> pipes;
-    private Image pipeHead, pipeBody;
+    private Image pipeBody;
     private Font font;
 
     public Overlay(Main main, Bird bird, ArrayList<Rectangle> pipes) {

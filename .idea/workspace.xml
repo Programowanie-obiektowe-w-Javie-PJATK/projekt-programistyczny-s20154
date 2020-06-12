@@ -35,7 +35,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Sound">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="FlappyBird" />
@@ -43,8 +43,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sound" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Sound" />
+      <module name="FlappyBird" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Sound" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -64,7 +72,8 @@
       <workItem from="1591782404078" duration="7837000" />
       <workItem from="1591799742822" duration="13857000" />
       <workItem from="1591883185561" duration="14266000" />
-      <workItem from="1591910567937" duration="2944000" />
+      <workItem from="1591910567937" duration="3134000" />
+      <workItem from="1591959090141" duration="4480000" />
     </task>
     <servers />
   </component>
@@ -84,30 +93,30 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1716" y="593" width="407" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.2560.1410@0.0.2560.1410" timestamp="1591819151069" />
-    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591738115530">
+    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591966139881">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1591738115530" />
+    <state x="1650" y="455" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1591966139881" />
     <state x="1678" y="579" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1591893835516">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1678" y="579" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.2560.1410@0.0.2560.1410" timestamp="1591893835516" />
-    <state width="1234" height="394" key="GridCell.Tab.0.bottom" timestamp="1591913454336">
+    <state width="1234" height="394" key="GridCell.Tab.0.bottom" timestamp="1591965902360">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1234" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1591913454336" />
-    <state width="1234" height="394" key="GridCell.Tab.0.center" timestamp="1591913454336">
+    <state width="1234" height="394" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1591965902360" />
+    <state width="1234" height="394" key="GridCell.Tab.0.center" timestamp="1591965902360">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1234" height="394" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1591913454336" />
-    <state width="1234" height="394" key="GridCell.Tab.0.left" timestamp="1591913454336">
+    <state width="1234" height="394" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1591965902360" />
+    <state width="1234" height="394" key="GridCell.Tab.0.left" timestamp="1591965902360">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1234" height="394" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1591913454336" />
-    <state width="1234" height="394" key="GridCell.Tab.0.right" timestamp="1591913454336">
+    <state width="1234" height="394" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1591965902360" />
+    <state width="1234" height="394" key="GridCell.Tab.0.right" timestamp="1591965902360">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1234" height="394" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1591913454336" />
+    <state width="1234" height="394" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1591965902360" />
     <state width="1234" height="492" key="GridCell.Tab.1.bottom" timestamp="1591790881376">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
@@ -124,10 +133,10 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state width="1234" height="492" key="GridCell.Tab.1.right/0.0.2560.1410@0.0.2560.1410" timestamp="1591790881376" />
-    <state x="1615" y="529" key="com.intellij.ide.util.TipDialog" timestamp="1591910592769">
+    <state x="1615" y="529" key="com.intellij.ide.util.TipDialog" timestamp="1591959180227">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1615" y="529" key="com.intellij.ide.util.TipDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1591910592769" />
+    <state x="1615" y="529" key="com.intellij.ide.util.TipDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1591959180227" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
