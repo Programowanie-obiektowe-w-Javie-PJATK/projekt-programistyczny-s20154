@@ -13,7 +13,7 @@ interface Player {
 
 public class Bird implements Player {
     public double x, y;
-    private double Vy;
+    public double Vy;
     private Image body;
     public static final double size = 20;
 
@@ -51,5 +51,50 @@ public class Bird implements Player {
         else
             return true;
     }
+
+    @Override
+    public String toString() {
+        return "Bird{" +
+                "x=" + x +
+                ", y=" + y +
+                ", Vy=" + Vy +
+                '}';
+    }
+}
+
+class BirdTest{
+    private Bird bird;
+
+    public static void main(String[] args){
+        new BirdTest();
+    }
+
+    public BirdTest(){
+        bird = new Bird();
+        System.out.println(bird.toString());
+        testGravitation();
+        System.out.println(bird.toString());
+        testJump();
+        System.out.println(bird.toString());
+        testReset();
+        System.out.println(bird.toString());
+    }
+
+    public void testGravitation(){
+        bird.pullDown();
+        bird.pullDown();
+        System.out.println("Pull down...");
+    }
+
+    public void testJump(){
+        bird.jump();
+        System.out.println("Jump...");
+    }
+
+    public void testReset(){
+        bird.reset();
+        System.out.println("Reset...");
+    }
+
 
 }

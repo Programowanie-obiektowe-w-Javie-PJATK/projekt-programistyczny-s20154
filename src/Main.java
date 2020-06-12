@@ -119,7 +119,6 @@ public class Main implements ActionListener, KeyListener, MouseListener {
     @Override
     public void keyPressed(KeyEvent keyEvent) {
         switch (keyEvent.getKeyCode()){
-            case KeyEvent.VK_KP_LEFT:
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_RIGHT:
